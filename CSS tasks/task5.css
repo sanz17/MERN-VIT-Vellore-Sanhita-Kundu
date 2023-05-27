@@ -1,0 +1,31 @@
+.horizontal {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.first_hor a {
+    float: left;
+    display: block;
+    background-color: #7a7979;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.hor a {
+    float: left;
+    display: block;
+    background-color: #cfcdcd;
+    color: rgb(90, 82, 82);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.hor:hover {
+    background-color: #555;
+    color: white;
+}
