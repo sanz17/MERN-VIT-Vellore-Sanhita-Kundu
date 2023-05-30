@@ -1,7 +1,26 @@
 //program to reverse a number
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task5</title>
+</head>
+<body>
+    <h2>Reverse a number</h2>
+    <input type="number" id="num">
+    <label for="num">Enter a number</label>
+    <button onclick="calculate()">Reverse</button>
+    <div id="rev">Reversed number is </div>
+</body>
+</html>
+
 <script>
-    //program to reverse a number
-    let x = 3245;
+    function calculate(){
+        let n=document.getElementById("num").value;
+
+    let x = parseInt(n);
     let temp = x;
     let rever = 0;
     while (temp > 0) {
@@ -9,8 +28,11 @@
         rever = (10 * rever) + r;
         temp = Math.floor(temp / 10);
     }
+    document.getElementById("rev").innerHTML=rever;
     console.log("The entered number is: ");
     console.log(x);
     console.log("The entered number is: ");
     console.log(rever);
+    }
+    
 </script>

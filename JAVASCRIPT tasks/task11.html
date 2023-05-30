@@ -1,196 +1,206 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>task11</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-    <script defer src="./index.js"></script>
     <style>
-        body {
-            
-            font-family: 'Poppins', sans-serif;
-        }
-
-        #form {
-            width: 300px;
-            margin: 20vh auto 0 auto;
-            padding: 20px;
-            background-color: whitesmoke;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-
-        #form h1 {
-            color: #0f2027;
-            text-align: center;
-        }
-
-        #form button {
-            padding: 10px;
-            margin-top: 10px;
-            width: 100%;
-            color: white;
-            background-color: rgb(41, 57, 194);
-            border: none;
-            border-radius: 4px;
-        }
-
-        .input-control {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-control input {
-            border: 2px solid #f0f0f0;
-            border-radius: 4px;
-            display: block;
-            font-size: 12px;
-            padding: 10px;
-            width: 100%;
-        }
-
-        .input-control input:focus {
-            outline: 0;
-        }
-
-        .input-control.success input {
-            border-color: #09c372;
-        }
-
-        .input-control.error input {
-            border-color: #ff3860;
-        }
-
-        .input-control .error {
-            color: #ff3860;
-            font-size: 9px;
-            height: 13px;
+        .error-message {
+            color: red;
         }
     </style>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var age = document.getElementById("age").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var address = document.getElementById("address").value;
+            var state = document.getElementById("state").value;
+            var country = document.getElementById("country").value;
+            var languages = document.querySelectorAll('input[name="language"]:checked');
+
+            var isValid = true;
+
+            if (name === "") {
+                document.getElementById("nameError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("nameError").innerHTML = "";
+            }
+
+            if (email === "") {
+                document.getElementById("emailError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("emailError").innerHTML = "";
+            }
+
+            if (password === "") {
+                document.getElementById("passwordError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("passwordError").innerHTML = "";
+            }
+
+            if (confirmPassword === "") {
+                document.getElementById("confirmPasswordError").innerHTML = "Poor or mismatch";
+                isValid = false;
+            } else if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerHTML = "Password mismatch";
+                isValid = false;
+            } else {
+                document.getElementById("confirmPasswordError").innerHTML = "";
+            }
+
+            if (!gender) {
+                document.getElementById("genderError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("genderError").innerHTML = "";
+            }
+
+            if (age === "") {
+                document.getElementById("ageError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("ageError").innerHTML = "";
+            }
+
+            if (phoneNumber === "") {
+                document.getElementById("phoneNumberError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("phoneNumberError").innerHTML = "";
+            }
+
+            if (address === "") {
+                document.getElementById("addressError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("addressError").innerHTML = "";
+            }
+
+            if (state === "") {
+                document.getElementById("stateError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("stateError").innerHTML = "";
+            }
+
+            if (country === "") {
+                document.getElementById("countryError").innerHTML = "Poor";
+                isValid = false;
+            } else {
+                document.getElementById("countryError").innerHTML = "";
+            }
+
+            if (languages.length === 0) {
+                document.getElementById("languageError").innerHTML = "At least one language is required";
+                isValid = false;
+            } else {
+                document.getElementById("languageError").innerHTML = "";
+            }
+
+            return isValid;
+        }
+    </script>
 </head>
 
 <body>
-    <div class="container">
-            <div class="input-control">
-                <td for="First Name">First Name</td>
-                <input id="Name" name="Name" type="text">
-                <span class="error"></span>
-            </div>
-            <div class="input-control">
-                <td for="Last Name">Last Name</td>
-                <input id="fName" name="fName" type="text">
-                <div class="error"></div>
-            </div>
+    <h1 style="margin-left: 550px;">Registration form</h1>
+    <form onsubmit="return validateForm()" style="margin-left: 400px;
+    margin-right: 700px;
+    padding-left: 150px;
+    background-color:rgb(255, 139, 139);
+    background-image: linear-gradient(to bottom right,rgb(236, 222, 131), rgb(237, 134, 134));
+    color: rgb(8, 8, 8);
+    line-height: 50px">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+            <span id="nameError" class="error-message"></span>
+        </div>
 
-            <div class="input-control">
-                <td for="email">Email</td>
-                <input id="email" name="email" type="text">
-                <div class="error"></div>
-            </div>
-            
-            <div class="input-control">
-                <td for="pwd">Password</td>
-                <input id="pwd" name="pwd" type="password">
-                <div class="error"></div>
-            </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+            <span id="emailError" class="error-message"></span>
+        </div>
 
-            <div class="input-control">
-                <td for="message">Hobbies</td>
-                <input id="message" name="message" type="message">
-                <div class="error"></div>
-            </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+            <span id="passwordError" class="error-message"></span>
+        </div>
 
-            <div class="input-control">
-                <td for="gender">Gender</td>
-                <input id="male" name="male" type="radio">
-                <label for="male">Male</label><br>
-                <input id="female" name="female" type="radio">
-                <label for="fe  male">Female</label><br>
-                <div class="error"></div>
-            </div>
-            
-            <button type="submit">Submit</button>
-        
-    </div>
-    <script>
-        const form = document.getElementById('form');
-        const Name = document.getElementById('Name');
-        const fName = document.getElementById('fName');
-        const email = document.getElementById('email');
-        const message = document.getElementById('message');
-        const pwd = document.getElementById('pwd');
+        <div>
+            <label for="confirmPassword">Re-enter Password:</label>
+            <input type="password" id="confirmPassword">
+            <span id="confirmPasswordError" class="error-message"></span>
+        </div>
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
+        <div>
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <span id="genderError" class="error-message"></span>
+        </div>
 
-            validateInputs();
-        });
+        <div>
+            <label for="age">Age:</label>
+            <input type="text" id="age">
+            <span id="ageError" class="error-message"></span>
+        </div>
 
-        const setError = (element, message) => {
-            const inputControl = element.parentElement;
-            const errorDisplay = inputControl.querySelector('.error');
+        <div>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber">
+            <span id="phoneNumberError" class="error-message"></span>
+        </div>
 
-            errorDisplay.innerText = message;
-            inputControl.classList.add('error');
-            inputControl.classList.remove('success')
-        }
+        <div>
+            <label for="address">Address:</label>
+            <textarea id="address"></textarea>
+            <span id="addressError" class="error-message"></span>
+        </div>
 
-        const setSuccess = element => {
-            const inputControl = element.parentElement;
-            const errorDisplay = inputControl.querySelector('.error');
+        <div>
+            <label for="state">State:</label>
+            <input type="text" id="state">
+            <span id="stateError" class="error-message"></span>
+        </div>
 
-            errorDisplay.innerText = '';
-            inputControl.classList.add('success');
-            inputControl.classList.remove('error');
-        };
+        <div>
+            <label for="country">Country:</label>
+            <select id="country">
+                <option value="">Select Country</option>
+                <option value="india">India</option>
+                <option value="usa">USA</option>
+                <option value="england">England</option>
+            </select>
+            <span id="countryError" class="error-message"></span>
+        </div>
 
+        <div>
+            <label>Languages Known:</label><br>
+            <input type="checkbox" id="english" name="language" value="english">
+            <label for="english">English</label><br>
+            <input type="checkbox" id="hindi" name="language" value="hindi">
+            <label for="hindi">Hindi</label><br>
+            <input type="checkbox" id="french" name="language" value="french">
+            <label for="french">French</label>
+            <span id="languageError" class="error-message"></span>
+        </div>
 
-
-        const validateInputs = () => {
-            const NameValue = Name.value.trim();
-            const fNameValue = fName.value.trim();
-            const emailValue = email.value.trim();
-            const messageValue = message.value.trim();
-            const pwdValue = pwd.value.trim();
-
-            if (NameValue === '') {
-                setError(Name, 'Poor');
-            } else {
-                setSuccess(Name);
-            }
-
-            if (fNameValue === '') {
-                setError(fName, 'Poor');
-            } else {
-                setSuccess(fName);
-            }
-
-            if (emailValue === '') {
-                setError(email, 'email is required');
-            } else {
-                setSuccess(email);
-            }
-
-            // if (messageValue === '') {
-            //     setError(message, 'This field is required');
-            // }else {
-            //     setSuccess(message);
-            // }
-
-            if (pwdValue === '') {
-                setError(pwd, 'passowrd is required');
-            }else {
-                setSuccess(pwd);
-            }
-
-        };
-
-    </script>
+        <div>
+            <input style="margin-left: 150px;margin-top: 20px;margin-bottom: 50px;padding: 10px;border-radius: 5px;" type="submit" value="Submit">
+        </div>
+    </form>
 </body>
 
 </html>

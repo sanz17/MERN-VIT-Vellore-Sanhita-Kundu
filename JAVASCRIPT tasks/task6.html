@@ -1,9 +1,26 @@
-<script>
-    //arrange letters in alphabetical order
-    let s = 'webmaster';
-    let sp = s.split('');
-    sp.sort();
-    let text = sp.join(''); 
-    console.log("Given string is ", s);
-    console.log("Alphabetically arranged string: ", text);
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task6</title>
+</head>
+<body>
+    <h2>Sort a string in alphabetical way</h2>
+    <input type="text" id="num">
+    <label for="num">Enter a word</label>
+    <button onclick="calculate()">Sort</button>
+    <div id="sort" >Sorted word is </div>
+
+    <script>
+        function calculate() {
+            let s = document.getElementById("num").value;
+            let sp = s.split('');
+            sp.sort();
+            let text = sp.join(''); 
+            document.getElementById("sort").innerHTML = "Sorted word is " + text;
+        }
+    </script>
+</body>
+</html>
