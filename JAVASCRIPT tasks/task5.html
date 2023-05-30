@@ -1,0 +1,16 @@
+//program to reverse a number
+<script>
+    //program to reverse a number
+    let x = 3245;
+    let temp = x;
+    let rever = 0;
+    while (temp > 0) {
+        let r = temp % 10;
+        rever = (10 * rever) + r;
+        temp = Math.floor(temp / 10);
+    }
+    console.log("The entered number is: ");
+    console.log(x);
+    console.log("The entered number is: ");
+    console.log(rever);
+</script>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>task9</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var language = document.getElementById("language").value;
+            var zipCode = document.getElementById("zipCode").value;
+            var about = document.getElementById("about").value;
+
+            var isValid = true;
+
+            if (name === "") {
+                document.getElementById("nameError").innerHTML = "This field is required";
+                isValid = false;
+            } else {
+                document.getElementById("nameError").innerHTML = "";
+            }
+
+            if (email === "") {
+                document.getElementById("emailError").innerHTML = "This field is required";
+                isValid = false;
+            } else {
+                document.getElementById("emailError").innerHTML = "";
+            }
+
+            if (password === "") {
+                document.getElementById("passwordError").innerHTML = "This field is required";
+                isValid = false;
+            } else {
+                document.getElementById("passwordError").innerHTML = "";
+            }
+
+            if (!gender) {
+                document.getElementById("genderError").innerHTML = "This field is required";
+                isValid = false;
+            } else {
+                document.getElementById("genderError").innerHTML = "";
+            }
+
+            if (language === "") {
+                document.getElementById("languageError").innerHTML = "This field is required";
+                isValid = false;
+            } else {
+                document.getElementById("languageError").innerHTML = "";
+            }
+
+            if (zipCode === "") {
+                document.getElementById("zipCodeError").innerHTML = "This field is required";
+                isValid = false;
+            } else {
+                document.getElementById("zipCodeError").innerHTML = "";
+            }
+
+            if (about === "") {
+                document.getElementById("aboutError").innerHTML = "This field is required";
+                isValid = false;
+            } else {
+                document.getElementById("aboutError").innerHTML = "";
+            }
+
+            return isValid;
+        }
+    </script>
+</head>
+<body style="background-color: rgb(187, 70, 116);">
+    <form onsubmit="return validateForm()" 
+    style="margin-left: 400px;
+    margin-right: 700px;
+    padding-left: 150px;
+    background-color: rgb(146, 50, 88);
+    color: white;
+    line-height: 50px;
+    font-size: 20px;">
+        <div style="padding-top: 10px;">
+            <label  for="name">Name:</label>
+            <input type="text" id="name">
+            <span id="nameError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+            <span id="emailError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+            <span id="passwordError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <span id="genderError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="language">Language:</label>
+            <select id="language">
+                <option value="">Select Language</option>
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="french">French</option>
+            </select>
+            <span id="languageError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="zipCode">Zip Code:</label>
+            <input type="text" id="zipCode">
+            <span id="zipCodeError" class="error-message"></span>
+        </div>
+
+        <div>
+            <label for="about">About:</label>
+            <textarea id="about"></textarea>
+            <span id="aboutError" class="error-message"></span>
+        </div>
+
+        <div>
+            <input style="margin-left: 89px;margin-top: 20px;margin-bottom: 50px;padding: 10px;border-radius: 5px;" type="submit" value="Register">
+        </div>
+    </form>
+</body>
+</html>

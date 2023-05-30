@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task7</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #form {
+            width: 300px;
+            margin: 20vh auto 0 auto;
+            padding: 20px;
+            background-color: rgb(245, 245, 245);
+            border-radius: 4px;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #form h1 {
+            color: #0f2027;
+            text-align: center;
+        }
+
+        #form button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            color: white;
+            background-color: rgb(41, 57, 194);
+            border: none;
+            border-radius: 4px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .input-control {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-control input {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-size: 12px;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="form" action="/" style="padding-right: 137px;">
+            <div class="input-control">
+                <label for="num1">1st number</label>
+                <input id="num1" name="num1" type="text">
+            </div>
+            <div class="input-control">
+                <label for="num2">2nd number</label>
+                <input id="num2" name="num2" type="text">
+                <div class="error"></div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" onclick="add()" style="margin: 10px;">ADD(+)</button>
+                <button type="button" onclick="sub()" style="margin: 10px;">SUBTRACT(-)</button>
+                <button type="button" onclick="mul()" style="margin: 10px;">MULTIPLY(*)</button>
+                <button type="button" onclick="divi()" style="margin: 10px;">DIVIDE(/)</button>
+            </div>
+            <p id="ans"></p>
+        </form>
+    </div>
+    <script>
+        const num1 = document.getElementById('num1');
+        const num2 = document.getElementById('num2');
+
+        const add = () => {
+            let number1 = parseInt(num1.value);
+            let number2 = parseInt(num2.value);
+            let ad = number1 + number2;
+            document.getElementById("ans").textContent = ad;
+        };
+
+        const sub = () => {
+            let number1 = parseInt(num1.value);
+            let number2 = parseInt(num2.value);
+            let su = number1 - number2;
+            document.getElementById("ans").textContent = su;
+        };
+
+        const mul = () => {
+            let number1 = parseInt(num1.value);
+            let number2 = parseInt(num2.value);
+            let mu = number1 * number2;
+            document.getElementById("ans").textContent = mu;
+        };
+
+        const divi = () => {
+            let number1 = parseInt(num1.value);
+            let number2 = parseInt(num2.value);
+            let di = number1 / number2;
+            document.getElementById("ans").textContent = di;
+        };
+    </script>
+</body>
+</html>
