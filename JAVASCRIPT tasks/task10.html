@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task10</title>
+</head>
+
+<body>
+    <h2>let arr1=[10,20,30]
+        let arr2=[40,50,60];</h2>
+
+    <h4>Concat:</h4>
+    <p id="concat"></p>
+
+    <h4>CopyWithin:</h4>
+    <p id="copywithin"></p>
+
+    <h4>Map a sq root of arr1</h4>
+    <p id="map"></p>
+
+    <h4>Every of 15 in arr1</h4>
+    <p id="every"></p>
+
+    <h4>Some of arr1</h4>
+    <p id="some"></p>
+
+    <h4>Filter 20</h4>
+    <p id="filter"></p>
+
+    <h4>Find 20 in arr1</h4>
+    <p id="find"></p>
+
+    <h4>index of 30</h4>
+    <p id="indexof"></p>
+
+    <h4>Lastindex of 50 in arr2</h4>
+    <p id="lastindex"></p>
+
+    <h4>Push 55</h4>
+    <p id="push"></p>
+
+    <h4>Pop in arr2</h4>
+    <p id="pop"></p>
+
+    <h4>Shift in arr2</h4>
+    <p id="shift"></p>
+</body>
+
+</html>
+<script>
+    let arr1 = [10, 20, 30];
+    let arr2 = [40, 50, 60];
+    document.getElementById("concat").innerHTML = arr1.concat(arr2);
+    document.getElementById("copywithin").innerHTML = arr1.copyWithin(2, 0);
+    document.getElementById("map").innerHTML = arr1.map(Math.sqrt);
+    document.getElementById("every").innerHTML = arr1.every(checkNum = () => {
+        return arr1 > 15;
+    });
+    somenum = () => {
+        return arr1 > 20;
+    }
+    document.getElementById("some").innerHTML = arr1.some(somenum);
+
+    let filteredArray = arr1.filter(function (element) {
+        return element > 15;
+    });
+    document.getElementById("filter").innerHTML = filteredArray.join(", ");
+
+    let arr3 = [10, 20, 30];
+    let foundElement = arr3.find(function (element) {
+        return element > 15;
+    });
+    document.getElementById("find").innerHTML = foundElement;
+
+    let arr4 = [10, 20, 30];
+    let elementToFind = 20;
+    let index = arr4.indexOf(elementToFind);
+    if (index !== -1) {
+        document.getElementById("indexof").innerHTML = "Element found at index: " + index;
+    } else {
+        document.getElementById("indexof").innerHTML = "Element not found";
+    }
+
+    document.getElementById("lastindex").innerHTML = arr2.lastIndexOf(50);
+
+    arr2.push(55);
+    document.getElementById("push").innerHTML = arr2;
+
+    arr2.pop();
+    document.getElementById("pop").innerHTML = arr2;
+
+    arr2.shift();
+    document.getElementById("shift").innerHTML = arr2;
+
+</script>
